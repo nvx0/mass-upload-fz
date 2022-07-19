@@ -20,3 +20,21 @@ From now it is called FZUtility.
 > auto visit secret scraping 
 
 > custom websocket (more implementations soon)
+
+<br><br>
+
+# FAQ:
+
+1. How to upload mods:
+<br>
+> click on the "select files" button, mods will be uploaded on their own.
+
+2. How to apply dark theme:
+<br>
+> Dark theme is applied automaticly.
+
+# TODO
+1. adding all saves downloader 
+2. websocket integrations
+3. error handler
+
