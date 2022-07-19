@@ -6,9 +6,15 @@ From now it is called FZUtility.
 2.0.0 changelogs:
 <br>
 > dark theme (bcuz white is eyeraping)
+
 > custom styles
+
 > optimizied + minified size of file
+
 > added viewing your own token
+
 > added viewing the secret session
+
 > added progress bar of uploading
+
 > auto visit secret scraping 
