@@ -1,47 +1,22 @@
 // ==UserScript==
-// @name         MassModUploaderFZ
+// @name         FZUtility
 // @namespace    https://factorio.zone/
-// @version      1.0
-// @description  An client-side modification to simplify uploading mods.
+// @version      2.0.0
+// @description  An client-side modification for FZ.
 // @author       cloudzik76
-// @match        https://factorio.zone/
+// @match        https://factorio.zone/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=factorio.zone
 // @grant        none
 // ==/UserScript==
 
 (function() {
-    let arr = []
-    alert('massmodupload by cloudzik76 has been loaded')
-    var tag = document.createElement("p");
-    var text = document.createTextNode("waiting for files..");
-    tag.appendChild(text);
-    var x = document.createElement("INPUT");
-    var secret = document.createElement("INPUT");
-    x.setAttribute("type", "file");
-    secret.setAttribute("type", "text");
-    secret.setAttribute("id", "secret");
-    secret.setAttribute("placeholder", "visitSecret");
-    x.setAttribute("multiple", "true");
-    x.setAttribute("id", "files")
-    tag.setAttribute("id", "txt")
-    document.body.append(x)
-    document.body.append(secret)
-    document.body.append(tag)
-    document.getElementById('files').onchange = function() {
-        for (let i = 0; i < document.getElementById('files').files.length; i++) {
-            arr.push(document.getElementById('files').files.item(i).name)
-            let file = document.getElementById('files').files.item(i);
-            var data = new FormData()
-            data.append('file', document.getElementById('files').files[i])
-            data.append('size', document.getElementById('files').files[i].size)
-            data.append('visitSecret', document.getElementById('secret').value)
-
-            fetch('https://factorio.zone/api/mod/upload', {
-                method: 'POST',
-                body: data
-            })
-
-            document.getElementById('txt').innerHTML = arr
-        }
-    };
+this.VERSION="2.0.0",this.SAVES_AMOUNT=9,console.clear(),console.log("[i] hello! recieved heartbeat.");const socket=new WebSocket("wss://factorio.zone/ws");let secret2="";socket.addEventListener("open",function(a){console.log("[custom websocket] connected")}),socket.addEventListener("message",function(a){console.log("[custom websocket] new message: ",a.data),secret2=JSON.parse(a.data).secret,console.log("[custom websocket] secret token: "+secret2),localStorage.setItem("vs0",secret2)});let currentToken=localStorage.getItem("userToken"),vs0=localStorage.getItem("vs0");const controlContainer=document.querySelector("section.info");controlContainer.insertAdjacentHTML("afterbegin",`
+            <section class='cinfo'>
+            <p>Your are using <strong id="version">${this.VERSION}</strong> version of FZUtility<br><strong>FZUtility</strong> is an client-side modification to simplify your life.</p>
+            </section>
+    `);const controlContainer2=document.querySelector("section.cinfo");controlContainer2.insertAdjacentHTML("beforebegin",`
+            <section class='cinfo'>
+                <p>Your token is <strong id="token">${currentToken}</strong> <br> Your session secret is <strong id="vs0">${vs0}</strong></p>
+            </section>
+    `);let body=document.getElementsByTagName("body")[0];window.onload=function(){document.getElementById("input-area").disabled?document.getElementById("input-area").setAttribute("placeholder","Turn on the server first."):document.getElementById("input-area").setAttribute("placeholder","")};var ss=document.styleSheets[0];ss.insertRule("::-webkit-scrollbar {background: white; border-radius: 30px;}",0),ss.insertRule("::placeholder { text-align:center; color: white; }",0),ss.insertRule("::-webkit-scrollbar-track {background: #f1f1f1; border-radius: 30px;}",0),ss.insertRule("::-webkit-scrollbar-thumb {background: #888; border-radius: 30px; width: 1px !important;}",0),ss.insertRule("::-webkit-scrollbar-thumb:hover {background: #555; transition: .3s;}",0),ss.insertRule(".btn-small { background-color: blueviolet; color: white; width: auto; height: 33px; border: transparent; margin-botton: 5px; position: relative; bottom: 10px }",0),ss.insertRule(".fz-utlity-1 { text-align: center; align:center; display: block; margin:auto; width: 100%; }",0),ss.insertRule(".fz-utlity-2 { height: 30px !important; }",0),ss.insertRule(".output-log {} ",0),ss.insertRule(".output-log { color: white } ",0),document.body.style.backgroundColor="#333",document.body.style.color="white";const cc=document.querySelector(".control-container");cc.style.backgroundColor="#222";const cc2=document.querySelector(".output-area");cc2.style.backgroundColor="white",cc2.style.color="white";const cc4=document.querySelector(".socket-info");cc4.style.backgroundColor="#333",cc4.style.color="white";const cc5=document.getElementById("saves"),cc6=document.getElementById("versions"),cc7=document.getElementById("regions");cc5.style.backgroundColor="#333",cc5.style.color="white",cc6.style.backgroundColor="#333",cc6.style.color="white",cc7.style.backgroundColor="#333",cc7.style.color="white";const cc8=document.querySelector(".input-area");cc8.style.backgroundColor="#333",cc8.style.borderColor="white",cc8.style.borderStyle="solid",cc8.style.borderRadius="30px",cc8.style.color="white",cc8.style.height="30px",cc8.style.position="relative",cc8.style.marginBottom="30px";let usar=document.getElementById("input-area");function h(){for(let a=1;a>this.SAVES_AMOUNT;a++){var b=new FormData;b.append("visitSecret","${vs0}"),b.append("save","slot"+a),fetch("https://factorio.zone/api/save/download",{method:"POST",body:b})}}(usar.classList.add("fz-utility-1"),usar.setAttribute("align","center"),document.getElementById("input-area").disabled)?document.getElementById("input-area").setAttribute("placeholder","Turn on the server first."):document.getElementById("input-area").setAttribute("placeholder",""),(document.getElementById("input-area").onclick=function(){document.getElementById("input-area").disabled?document.getElementById("input-area").setAttribute("placeholder","Turn on the server first."):document.getElementById("input-area").setAttribute("placeholder","")},document.getElementById("input-area").disabled)?document.getElementById("input-area").setAttribute("placeholder","Turn on the server first."):document.getElementById("input-area").setAttribute("placeholder","");var tag=document.createElement("p"),saves=document.createElement("button"),text=document.createTextNode("Mods"),tag2=document.createElement("p"),txt2=document.createTextNode("Saves");tag.setAttribute("align","center"),tag2.setAttribute("align","center"),saves.innerText="Download all saves",saves.setAttribute("class","pure-button start-button fz-utlity-2"),saves.setAttribute("onclick",h());var x=document.createElement("INPUT"),secret=document.createElement("INPUT"),pgr=document.createElement("progress");pgr.setAttribute("value","0"),pgr.setAttribute("id","pg"),pgr.setAttribute("max","100"),x.setAttribute("type","file"),x.setAttribute("multiple","true"),x.setAttribute("id","files"),tag.setAttribute("id","txt"),tag2.appendChild(txt2),tag.appendChild(text),document.body.append(tag),document.body.append(x),document.body.append(pgr);let array=[],files=[],mods_uploaded=1;document.getElementById("files").onchange=function(){for(let a=0;a<document.getElementById("files").files.length;a++){array.push(document.getElementById("files").files.item(a).name);let c=document.getElementById("pg");c.value=array.length,document.getElementById("files").files.item(a);let d=document.getElementById("txt");c.max=array.length,d.innerHTML=`Mods detected: ${array}`;var b=new FormData;b.append("file",document.getElementById("files").files[a]),b.append("size",document.getElementById("files").files[a].size),b.append("visitSecret",secret2),fetch("https://factorio.zone/api/mod/upload",{method:"POST",body:b}).then(a=>{mods_uploaded++,c.value=mods_uploaded})}}
 })();
