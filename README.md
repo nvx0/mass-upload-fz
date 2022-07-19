@@ -26,12 +26,12 @@ From now it is called FZUtility.
 # FAQ:
 
 1. How to upload mods:
-<br>
 > click on the "select files" button, mods will be uploaded on their own.
 
 2. How to apply dark theme:
-<br>
 > Dark theme is applied automaticly.
+
+<br>
 
 # TODO
 1. adding all saves downloader 
