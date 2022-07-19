@@ -5,9 +5,9 @@ From now it is called FZUtility.
 <br><br>
 2.0.0 changelogs:
 <br>
-> dark theme (bcuz white is eyeraping)
+> added dark theme (bcuz white is eyeraping)
 
-> custom styles
+> added custom styles
 
 > optimizied + minified size of file
 
@@ -18,3 +18,5 @@ From now it is called FZUtility.
 > added progress bar of uploading
 
 > auto visit secret scraping 
+
+> custom websocket (more implementations soon)
