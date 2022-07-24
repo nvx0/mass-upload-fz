@@ -192,7 +192,7 @@
         var data = new FormData()
         data.append('file', document.getElementById('files').files[i])
         data.append('size', document.getElementById('files').files[i].size)
-        data.append('visitSecret', secret2)
+        data.append('visitSecret', localStorage.getItem('vs0'))
         fetch('https://factorio.zone/api/mod/upload', {
              method: 'POST',
              body: data
